@@ -2,20 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!--<parent>
+    <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.12.RELEASE</version>
+        <version>2.6.8</version>
         <relativePath/>
-    </parent>-->
-    <parent>
-        <groupId>com.ant.extension</groupId>
-        <artifactId>ant-extension</artifactId>
-        <version>1.0-SNAPSHOT</version>
     </parent>
+<!--    <parent>-->
+<!--        <groupId>com.ant.extension</groupId>-->
+<!--        <artifactId>ant-extension</artifactId>-->
+<!--        <version>1.0-SNAPSHOT</version>-->
+<!--    </parent>-->
     <modelVersion>4.0.0</modelVersion>
 
-    <!--<groupId>ltd.hongyu</groupId>-->
+    <groupId>ltd.hongyu</groupId>
     <artifactId>spring-data-jpa-comment</artifactId>
     <version>1.2.1</version>
 
@@ -100,23 +100,6 @@
         </license>
     </licenses>
 
-    <!-- 开发者描述 -->
-    <developers>
-        <developer>
-            <name>鸿宇</name>
-            <url>http://hongyu.ltd</url>
-            <email>1527200768@qq.com</email>
-            <organization>鸿宇科技</organization>
-            <organizationUrl>http://hongyu.ltd</organizationUrl>
-        </developer>
-    </developers>
-
-    <!-- 项目地址描述 -->
-    <scm>
-        <connection>scm:git:git://github.com/hongyukeji/spring-data-jpa-comment.git</connection>
-        <developerConnection>scm:git:ssh://github.com:hongyukeji/spring-data-jpa-comment.git</developerConnection>
-        <url>http://github.com/hongyukeji/spring-data-jpa-comment/tree/master</url>
-    </scm>
 
     <profiles>
         <profile>

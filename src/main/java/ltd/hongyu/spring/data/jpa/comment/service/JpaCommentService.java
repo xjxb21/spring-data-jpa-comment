@@ -9,7 +9,10 @@ import ltd.hongyu.spring.data.jpa.comment.pojo.dto.ColumnCommentDTO;
 import ltd.hongyu.spring.data.jpa.comment.pojo.dto.TableCommentDTO;
 import ltd.hongyu.spring.data.jpa.comment.properties.JpaCommentProperties;
 import org.hibernate.SessionFactory;
+import org.hibernate.engine.spi.SessionFactoryDelegatingImpl;
 import org.hibernate.internal.SessionFactoryImpl;
+import org.hibernate.metamodel.internal.MetamodelImpl;
+import org.hibernate.metamodel.spi.MetamodelImplementor;
 import org.hibernate.persister.entity.EntityPersister;
 import org.hibernate.persister.entity.SingleTableEntityPersister;
 import org.hibernate.persister.walking.spi.AttributeDefinition;
@@ -124,8 +127,13 @@ public class JpaCommentService {
         Map<String, TableCommentDTO> tableCommentMap = new HashMap<>(256);
         //通过EntityManager获取factory
         EntityManagerFactory entityManagerFactory = entityManager.getEntityManagerFactory();
-        SessionFactoryImpl sessionFactory = (SessionFactoryImpl) entityManagerFactory.unwrap(SessionFactory.class);
-        Map<String, EntityPersister> persisterMap = sessionFactory.getMetamodel().entityPersisters();
+        // modify by xiao
+        //SessionFactoryImpl sessionFactory = (SessionFactoryImpl) entityManagerFactory.unwrap(SessionFactory.class);
+        //Map<String, EntityPersister> persisterMap = sessionFactory.getMetamodel().entityPersisters();
+
+        Map<String, EntityPersister> persisterMap = ((MetamodelImpl) entityManagerFactory.unwrap(SessionFactory.class).getMetamodel()).entityPersisters();
+
+
         for (Map.Entry<String, EntityPersister> entity : persisterMap.entrySet()) {
             SingleTableEntityPersister persister = (SingleTableEntityPersister) entity.getValue();
             Class targetClass = entity.getValue().getMappedClass();
